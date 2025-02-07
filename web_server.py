@@ -2,14 +2,14 @@ from flask import Flask, request
 from entryManager import EntryManager
 from resources import Entry
 
-FOLDER = '/tmp/'
+FOLDER = r'C:\Users\user\Documents\Tasks'
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!!!</p>"
+    return "<p>Hello, World!</p>"
 
 
 @app.route("/api/entries/")
@@ -30,7 +30,7 @@ def save_entries():
         entry_json = Entry.entry_from_json(item)
         entry_manager.entries.append(entry_json)
         entry_manager.save()
-    return {'status: success'}
+    return 'status: success'
 
 
 @app.after_request
