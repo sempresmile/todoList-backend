@@ -1,11 +1,13 @@
 import json
 
-
+#specifies indent for entries printed
 def print_with_indent(value, indent=0):
     indentation = " " * indent
     print(indentation + str(value))
 
+
 class Entry:
+
     def __init__(self, title, entries = None, parent = None):
         if entries is None:
             entries = []

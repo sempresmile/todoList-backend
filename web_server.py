@@ -1,7 +1,9 @@
 from flask import Flask, request
 from entryManager import EntryManager
 from resources import Entry
+import os
 
+#FOLDER = os.path.join('C:','Users','user','Documents','Tasks',)
 FOLDER = r'C:\Users\user\Documents\Tasks'
 
 app = Flask(__name__)
@@ -29,8 +31,8 @@ def save_entries():
     for item in requested_json:
         entry_json = Entry.entry_from_json(item)
         entry_manager.entries.append(entry_json)
-        entry_manager.save()
-    return 'status: success'
+    entry_manager.save()
+    return {'status': 'success'}
 
 
 @app.after_request
