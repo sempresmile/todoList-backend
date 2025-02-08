@@ -9,11 +9,6 @@ FOLDER = r'C:\Users\user\Documents\Tasks'
 app = Flask(__name__)
 
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-
-
 @app.route("/api/entries/")
 def get_entries():
     entry_manager = EntryManager(FOLDER)
